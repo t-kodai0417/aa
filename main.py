@@ -21,13 +21,8 @@ import time
 #++++++++++++++++++++++++++++++++++++
 
 def dos():
-  r = urllib.request.urlopen('https://api').read().decode('utf-8')
-  f = open("bd.txt", 'a', encoding='utf-8', newline='\n')
-  f.write(r)
-  f.close()
   
-  for proxy in res: proxies.append("https://" + proxy)
-    res=requests.get(r"https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=5000").text.splitlines()
+  res=["45.167.253.129:999","222.218.122.22:9797","106.14.187.182:21673","49.233.173.151:9080","1.180.156.226:65001","98.12.195.129:443","89.205.35.229:8080","103.163.134.4:8181","103.123.246.54:8080","190.120.248.113:999","98.12.195.129:443","89.205.35.229:8080"]
   
   print(res)
   
