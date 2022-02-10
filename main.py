@@ -27,7 +27,7 @@ def dos():
   f.close()
   
   for proxy in res: proxies.append("https://" + proxy)
-    res = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=5000").text.splitlines()
+    res=requests.get(r"https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&timeout=5000").text.splitlines()
     print(res)
   
   t=random.choice(res)
